@@ -160,7 +160,7 @@ GLA University, Mathura
 ### Connect With Me
 
 - GitHub: https://github.com/devjadaun
-- LinkedIn: Add your LinkedIn profile here
+- LinkedIn: https://www.linkedin.com/in/dev-jadaun-479172396/
 
 ---
 
