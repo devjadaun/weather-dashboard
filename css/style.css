@@ -1,0 +1,474 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+
+    background:linear-gradient(
+        to bottom,
+        #5daeff,
+        #87ceeb,
+        #b8e6ff
+    );
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
+#weatherScene{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+}
+
+/* SUN */
+
+.sun{
+    position:absolute;
+    top:80px;
+    right:120px;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+    background:#FFD54F;
+
+    box-shadow:
+        0 0 60px #FFD54F,
+        0 0 120px #FFD54F;
+
+    animation:pulse 4s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+/* CLOUDS */
+
+.cloud{
+    position:absolute;
+    width:220px;
+    height:70px;
+
+    background:white;
+    border-radius:100px;
+    opacity:.85;
+}
+
+.cloud::before{
+    content:"";
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    left:30px;
+    top:-35px;
+
+    background:white;
+    border-radius:50%;
+}
+
+.cloud::after{
+    content:"";
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    right:20px;
+    top:-45px;
+
+    background:white;
+    border-radius:50%;
+}
+
+.cloud1{
+    top:100px;
+    left:-250px;
+    animation:cloudMove 35s linear infinite;
+}
+
+.cloud2{
+    top:220px;
+    left:-300px;
+    animation:cloudMove 50s linear infinite;
+}
+
+.cloud3{
+    top:60px;
+    left:-180px;
+    animation:cloudMove 60s linear infinite;
+}
+
+@keyframes cloudMove{
+    from{
+        transform:translateX(-300px);
+    }
+    to{
+        transform:translateX(calc(100vw + 500px));
+    }
+}
+
+/* CONTAINER */
+
+.container{
+    width:100%;
+    max-width:1200px;
+}
+
+/* CARD */
+
+.weather-card{
+    background:rgba(15,23,42,0.88);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    border-radius:30px;
+
+    padding:30px;
+
+    color:white;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.45);
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:2rem;
+    font-weight:700;
+}
+
+#clock{
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+#dateDisplay{
+    opacity:.8;
+    margin-top:5px;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+    outline:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:white;
+}
+
+.search-box input::placeholder{
+    color:rgba(255,255,255,.8);
+}
+
+.search-box button{
+    padding:15px 25px;
+
+    border:none;
+    border-radius:15px;
+
+    cursor:pointer;
+
+    background:#38bdf8;
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.search-box button:hover{
+    transform:translateY(-3px);
+}
+
+/* WEATHER */
+
+.weather-info{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.city-name{
+    font-size:2rem;
+    font-weight:600;
+}
+
+.weather-icon img{
+    width:120px;
+    height:120px;
+}
+
+.temperature{
+    font-size:4rem;
+    font-weight:700;
+}
+
+.description{
+    font-size:1.2rem;
+    text-transform:capitalize;
+}
+
+/* DETAILS */
+
+.details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.detail-card{
+    background:rgba(0,0,0,.25);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.detail-card:hover{
+    transform:translateY(-5px);
+}
+
+/* FORECAST */
+
+.forecast-section{
+    margin-top:35px;
+}
+
+.forecast-section h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.forecast-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.forecast-card{
+    width:120px;
+
+    background:rgba(0,0,0,.25);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:15px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.forecast-card:hover{
+    transform:translateY(-5px);
+}
+
+/* CHART */
+
+canvas{
+    margin-top:20px;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:10px;
+}
+
+/* LOADER */
+
+.loader{
+    width:50px;
+    height:50px;
+
+    border:5px solid rgba(255,255,255,.3);
+    border-top:5px solid white;
+
+    border-radius:50%;
+
+    margin:20px auto;
+
+    animation:spin 1s linear infinite;
+}
+
+.hidden{
+    display:none;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+/* TEXT */
+
+.header h1,
+#clock,
+#dateDisplay,
+.city-name,
+.temperature,
+.description,
+.detail-card,
+.forecast-card,
+.forecast-section h2,
+.footer{
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.9);
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    opacity:.85;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .header{
+        flex-direction:column;
+        text-align:center;
+        gap:10px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .temperature{
+        font-size:3rem;
+    }
+
+    .city-name{
+        font-size:1.5rem;
+    }
+
+    .sun{
+        width:80px;
+        height:80px;
+        right:30px;
+    }
+}
+
+/* RAIN */
+
+#rain{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.drop{
+    position:absolute;
+
+    width:2px;
+    height:20px;
+
+    background:
+    rgba(255,255,255,.7);
+
+    animation:
+    rainFall linear infinite;
+}
+
+@keyframes rainFall{
+
+    from{
+        transform:
+        translateY(-100px);
+    }
+
+    to{
+        transform:
+        translateY(100vh);
+    }
+}
+
+/* STARS */
+
+#stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.star{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:
+    twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+
+    50%{
+        opacity:.2;
+    }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Weather Scene -->
+    <div id="weatherScene">
+
+        <div class="sun"></div>
+
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+
+    </div>
+
+    <div id="rain"></div>
+<div id="stars"></div>
+
+    <div class="container">
+
+        <div class="weather-card">
+
+            <!-- Loader -->
+            <div id="loader" class="loader hidden"></div>
+
+            <!-- Header -->
+            <div class="header">
+
+                <div>
+                    <h1>🌦 Weather Dashboard</h1>
+                    <p id="dateDisplay"></p>
+                </div>
+
+                <div id="clock">
+                    00:00
+                </div>
+
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Search city..."
+                >
+
+                <button id="searchBtn">
+                    Search
+                </button>
+
+            </div>
+
+            <!-- Current Weather -->
+            <div class="weather-info">
+
+                <div class="city-name">
+                    Delhi
+                </div>
+
+                <div class="weather-icon">
+
+                    <img
+                        id="weatherIcon"
+                        src=""
+                        alt="Weather Icon"
+                    >
+
+                </div>
+
+                <div class="temperature">
+                    30°C
+                </div>
+
+                <div class="description">
+                    Clear Sky
+                </div>
+
+            </div>
+
+            <!-- Weather Details -->
+            <div class="details">
+
+                <div class="detail-card">
+                    <h3>💧 Humidity</h3>
+                    <p id="humidity">--</p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>🌬 Wind</h3>
+                    <p id="wind">--</p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>🌡 Feels Like</h3>
+                    <p id="feelsLike">--</p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>📊 Pressure</h3>
+                    <p id="pressure">--</p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>🌅 Sunrise</h3>
+                    <p id="sunrise">--</p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>🌇 Sunset</h3>
+                    <p id="sunset">--</p>
+                </div>
+
+            </div>
+
+            <!-- AQI -->
+            <div class="forecast-section">
+
+                <h2>🌫 Air Quality Index</h2>
+
+                <div class="detail-card">
+
+                    <h3>Current AQI</h3>
+
+                    <p id="aqi">
+                        Loading...
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Forecast -->
+            <div class="forecast-section">
+
+                <h2>📅 5-Day Forecast</h2>
+
+                <div
+                    class="forecast-container"
+                    id="forecastContainer"
+                >
+
+                </div>
+
+            </div>
+
+            <!-- Temperature Chart -->
+            <div class="forecast-section">
+
+                <h2>📈 Temperature Trend</h2>
+
+                <canvas id="tempChart"></canvas>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+
+                Built by Dev Thakur 🚀
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
